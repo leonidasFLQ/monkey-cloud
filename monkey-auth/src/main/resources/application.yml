@@ -1,0 +1,32 @@
+server:
+  port: 9401
+spring:
+  profiles:
+    active: dev
+  application:
+    name: monkey-auth
+  datasource:
+    url: jdbc:mysql://192.168.1.123:3306/monkey_auth?characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 9
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    database: 0
+    port: 6379
+    host: 192.168.1.123
+    password: 123456
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
